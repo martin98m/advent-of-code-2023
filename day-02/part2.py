@@ -1,4 +1,3 @@
-from functools import reduce
 
 def check(arr):
     r, g, b = 0, 0, 0
@@ -23,12 +22,14 @@ input ='inputs/input.txt'
 with open(input, 'r') as f:
     file = f.read().replace(',','').splitlines()
 
-    total = 0
-    for x,line in enumerate(file):
+    p1, p2 = 0, 0
+    for i, line in enumerate(file):
         line = line.split(':')[1].split(';')
-        x = list(map(lambda x: x.split(),line))
+        x = list(map(lambda x: x.split(), line))
         y = list(map(lambda arr: check(arr), x))
         mins = getMin(y)
-        total = total + reduce(lambda x, y: x * y, mins)
+        p1 = p1 + (0 if mins[0]>12 or mins[1]>13 or mins[2]>14 else i + 1)
+        p2 = p2 + (mins[0] * mins[1] * mins[2])
         
-    print(total)
+    print(p1)
+    print(p2)

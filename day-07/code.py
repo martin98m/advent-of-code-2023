@@ -1,24 +1,12 @@
 from collections import Counter
-
+arr = [[2,1,1,1], [2,2,1], [3,1,1], [3,2], [4,1], [5]]
 def value(a, wild=0):
     if len(a) > 0:
         a[0] = a[0] + wild
     else:
         a.append(wild)
-    if a == [5]:
-        return 6
-    elif a == [4,1]:
-        return 5
-    elif a == [3,2]:
-        return 4
-    elif a == [3,1,1]:
-        return 3
-    elif a == [2,2,1]:
-        return 2
-    elif a == [2,1,1,1]:
-        return 1
-    else:
-        return 0
+    return arr.index(a) + 1 if a in arr else 0
+
     
 def change_sym(a, j=True):
     res = a.replace('T','B').replace('J','C' if j else '1').replace('Q','D').replace('K','E').replace('A','F')

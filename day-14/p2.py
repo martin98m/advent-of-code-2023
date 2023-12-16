@@ -43,7 +43,7 @@ with open('day-14/in.txt') as f:
 
     res = file.copy()
     
-    for i in range(1000000000):
+    for i in range(1000):
         r1 = res.copy()
         for r in range(maxX):
             for c in range(maxY):
